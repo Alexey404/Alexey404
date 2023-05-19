@@ -1,5 +1,5 @@
-import { AxiosPromise, all } from 'axios'
-import { takeEvery } from 'redux-saga/effects'
+import { AxiosPromise } from 'axios'
+import { all, fork, takeEvery } from 'redux-saga/effects'
 import { getListPosts } from '../../axios/Api'
 
 function* workerSaga() {
@@ -12,7 +12,5 @@ function* watchClickSaga() {
 }
 
 export function* listPostsSaga() {
-  yield all([watchClickSaga])
+  yield all([fork(watchClickSaga)])
 }
-
-export default listPostsSaga

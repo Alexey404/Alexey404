@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 function App() {
   const state = useSelector(state => state)
   const dispatch = useDispatch()
-  console.log(state)
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -14,7 +14,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Button onClick={() => dispatch({ type: 'CLICK' })}>Learn React</Button>
+        <Button onClick={() => dispatch({ type: 'GET_POSTS' })}>
+          Learn React
+        </Button>
       </header>
     </div>
   )
