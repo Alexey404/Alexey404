@@ -1,0 +1,10 @@
+.dropdown-layout::after {
+	display: none !important;
+}
+
+.dropdown-layout {
+	margin: 0px 10px;
+	border: none !important;
+	background-color: transparent !important;
+}
+

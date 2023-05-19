@@ -1,11 +1,9 @@
+import MenuIcon from '@mui/icons-material/Menu'
 import { FC } from 'react'
-import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Nav from 'react-bootstrap/Nav'
+import { ButtonGroup, Dropdown } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Offcanvas from 'react-bootstrap/Offcanvas'
+import './Layout.css'
+import { Link } from 'react-router-dom'
 
 type typeProps = {
   Component: FC
@@ -14,36 +12,25 @@ type typeProps = {
 export const Layout = ({ Component }: typeProps) => {
   return (
     <>
-      <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-        <Container>
-          <Navbar.Brand href='#home'>React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-          <Navbar.Collapse id='responsive-navbar-nav'>
-            <Nav className='me-auto'>
-              <Nav.Link href='#features'>Features</Nav.Link>
-              <Nav.Link href='#pricing'>Pricing</Nav.Link>
-              <NavDropdown title='Dropdown' id='collasible-nav-dropdown'>
-                <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-                <NavDropdown.Item href='#action/3.2'>
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href='#action/3.3'>
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href='#action/3.4'>
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href='#deets'>More deets</Nav.Link>
-              <Nav.Link eventKey={2} href='#memes'>
-                Dank memes
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+      <Navbar key={10} variant='dark' bg='dark' expand='true' className='mb-3'>
+        <Navbar.Brand as={Link} to='/'>
+          Navbar Offcanvas
+        </Navbar.Brand>
+        <div className='mt-2'>
+          <Dropdown as={ButtonGroup}>
+            <Dropdown.Toggle className='dropdown-layout' variant='secondary'>
+              <MenuIcon />
+            </Dropdown.Toggle>
+            <Dropdown.Menu className='super-colors' align={{ lg: 'end' }}>
+              <Dropdown.Item as={Link} to='/' eventKey='1'>
+                Список постов
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to='/AboutMe' eventKey='2'>
+                Обо мне
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
       </Navbar>
       <Component />
     </>

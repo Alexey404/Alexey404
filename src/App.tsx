@@ -1,23 +1,27 @@
-import { Button } from 'react-bootstrap'
-import './App.css'
-import logo from './logo.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { Layout } from './Pages/Components/Layout'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { HomePage } from './Pages/Home/HomePage'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import './App.css'
+import { AboutMe } from './Pages/AboutMe/AboutMe'
+import { Layout } from './Pages/Components/Layout'
+import { HomePage } from './Pages/Home/HomePage'
+import { Profile } from './Pages/Profile/Profile'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout Component={HomePage} />,
   },
+  {
+    path: '/profile',
+    element: <Layout Component={Profile} />,
+  },
+  {
+    path: '/AboutMe',
+    element: <Layout Component={AboutMe} />,
+  },
 ])
 
 function App() {
-  const state = useSelector(state => state)
-  const dispatch = useDispatch()
-
   return (
     <div className='App'>
       <RouterProvider router={router} />

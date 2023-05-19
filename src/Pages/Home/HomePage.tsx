@@ -1,3 +1,12 @@
+import { Container } from 'react-bootstrap'
+import { CardComponent } from './Card'
+
 export const HomePage = () => {
-  return <div>Home</div>
+  return (
+    <>
+      <Container>
+        <CardComponent />
+      </Container>
+    </>
+  )
 }
