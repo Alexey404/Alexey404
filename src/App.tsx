@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button } from 'react-bootstrap'
+import './App.css'
+import logo from './logo.svg'
+import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
+  const state = useSelector(state => state)
+  const dispatch = useDispatch()
+  console.log(state)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button onClick={() => dispatch({ type: 'CLICK' })}>Learn React</Button>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
