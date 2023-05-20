@@ -10,10 +10,11 @@ export const getListPosts = async () => {
   return reqest.data
 }
 
-export const getComments = async () => {
+export const getComments = async (id: number) => {
   const url = baseURL + '/comments'
   const reqest = await axios(url, {
     method: 'get',
+    params: { idPost: id },
   })
   return reqest.data
 }

@@ -3,6 +3,7 @@ import { Card, ListGroup } from 'react-bootstrap'
 import { commentsType, postType } from '../../redux/reducers/postsReducer'
 import './Home.css'
 import { Author } from './Author'
+import { useDispatch } from 'react-redux'
 
 type propsType = {
   post: postType
@@ -10,6 +11,13 @@ type propsType = {
 
 export const CardComponent = ({ post }: propsType) => {
   const [isComents, setIsComents] = useState(false)
+  const dispatch = useDispatch()
+
+  const handlerClick = (id: number) => {
+    dispatch({ type: 'GET_COMMENTS', id: id })
+    setIsComents(prev => !prev)
+  }
+
   return (
     <Card>
       <Card.Body>
@@ -22,7 +30,7 @@ export const CardComponent = ({ post }: propsType) => {
         {!isComents ? (
           <ListGroup.Item
             className='button-comments'
-            onClick={() => setIsComents(prev => !prev)}
+            onClick={() => handlerClick(post.id)}
           >
             Показать комментарии
           </ListGroup.Item>

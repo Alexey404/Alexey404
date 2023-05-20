@@ -1,13 +1,20 @@
 import { Card, Col, Container, Image } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import { CardComponent } from '../Home/Card'
+import { useEffect } from 'react'
 import './Profile.css'
 
 export const Profile = () => {
   const profile = useSelector((state: AppStateType) => state.profile)
   const post = useSelector((state: AppStateType) => state.post)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({ type: 'GET_POSTS' })
+  }, [])
 
   return (
     <Container>

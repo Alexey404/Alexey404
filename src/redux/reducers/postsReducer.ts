@@ -3,6 +3,7 @@ export type postType = {
   author: authorType
   content: string
   heading: string
+  loadComments: boolean
   comments: Array<commentsType>
 }
 
@@ -44,22 +45,20 @@ export const postsReducer = (
       }
     }
     case 'LOAD_COMMENTS': {
-      return {
-        ...state,
-        loading: true,
-      }
+      const newPosts = state.posts.map(e =>
+        e.id === action.peyload.id ? { ...e, loadComments: true } : e
+      )
+      return { ...state, posts: newPosts }
     }
     case 'SET_COMMENTS': {
-      state.posts.map(e =>
-        e.id === action.peyload.id ? { ...e, comments: e.comments } : e
+      const newPosts = state.posts.map(e =>
+        e.id === action.peyload.id
+          ? { ...e, comments: action.peyload.data, loadComments: false }
+          : e
       )
       return {
         ...state,
-        posts: state.posts.map(e =>
-          e.id === action.peyload.id
-            ? { ...e, comments: action.peyload.comments }
-            : e
-        ),
+        posts: newPosts,
       }
     }
     default:
