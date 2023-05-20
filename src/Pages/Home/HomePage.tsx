@@ -7,7 +7,6 @@ import { postType } from '../../redux/reducers/postsReducer'
 
 export const HomePage = () => {
   const post = useSelector((state: AppStateType) => state.post)
-  console.log(post.posts)
   return (
     <>
       <Container>

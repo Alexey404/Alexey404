@@ -1,7 +1,8 @@
-import { Card, ListGroup } from 'react-bootstrap'
-import './Home.css'
 import { useState } from 'react'
+import { Card, ListGroup } from 'react-bootstrap'
 import { commentsType, postType } from '../../redux/reducers/postsReducer'
+import './Home.css'
+import { Author } from './Author'
 
 type propsType = {
   post: postType
@@ -15,15 +16,7 @@ export const CardComponent = ({ post }: propsType) => {
         <Card.Title>{post.heading}</Card.Title>
         <Card.Text>{post.content}</Card.Text>
         <Card.Text>Автор:</Card.Text>
-        <div className='author-block'>
-          <img className='icon-placehold' src='http://placehold.it/48x48/' />
-          <div>
-            <div className='author-name-block'>
-              <div className='author-block-item'>{post.author.name}</div>
-              <div className='author-block-item'>{post.author.email}</div>
-            </div>
-          </div>
-        </div>
+        <Author author={post.author} />
       </Card.Body>
       <ListGroup variant='flush'>
         {!isComents ? (
@@ -38,23 +31,7 @@ export const CardComponent = ({ post }: propsType) => {
             <ListGroup.Item>
               {post.comments ? (
                 post.comments?.map((comment: commentsType) => (
-                  <div key={comment.id} className='author-block'>
-                    <img
-                      className='icon-placehold'
-                      src='http://placehold.it/48x48/'
-                    />
-                    <div>
-                      <div className='author-name-block'>
-                        <div className='author-block-item'>
-                          {comment.author.name}
-                        </div>
-                        <div className='author-block-item'>
-                          {comment.author.email}
-                        </div>
-                      </div>
-                      <div className='comment-content'>{comment.content}</div>
-                    </div>
-                  </div>
+                  <Author author={comment.author} content={comment.content} />
                 ))
               ) : (
                 <div className='no-comments'>Нет комментариев</div>
