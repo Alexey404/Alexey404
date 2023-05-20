@@ -17,12 +17,12 @@
 	cursor: pointer;
 }
 
-.comment-block {
+.author-block {
 	display: flex;
 	margin-top: 15px;
 }
 
-.author-block {
+.author-name-block {
 	display: flex;
 }
 

@@ -1,8 +1,6 @@
 export type postType = {
   id: number
-  idAuthor: number
-  author: string
-  email: string
+  author: authorType
   content: string
   heading: string
   comments: Array<commentsType>
@@ -10,10 +8,14 @@ export type postType = {
 
 export type commentsType = {
   id: number
-  author: string
-  idAuthor: number
-  email: string
+  author: authorType
   content: string
+}
+
+export type authorType = {
+  id: number
+  name: string
+  email: string
 }
 
 type InitialStatePostsType = typeof initialState
@@ -23,57 +25,45 @@ const initialState = {
     {
       id: 1,
       idAuthor: 1,
-      author: 'Олег',
+      author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' },
       email: 'oleg@gmail.com',
       heading: 'Как мы используем RTK Query в React-приложениях',
       content: 'sssssssssssss',
     },
     {
       id: 2,
-      idAuthor: 1,
-      author: 'Олег',
-      email: 'oleg@gmail.com',
+      author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' },
       heading: 'Как мы используем RTK Query в React-приложениях',
       content: 'sssssssssewwwwssss',
     },
     {
       id: 3,
-      idAuthor: 2,
-      author: 'Андрей',
+      author: { name: 'Андрей', id: 2, email: 'andrey@gmail.com' },
       heading: 'Как мы используем RTK Query в React-приложениях',
-      email: 'andrey@gmail.com',
       content:
         'С момента своего первого релиза в 2015 году Redux использовался и продолжает использоваться на множестве клиентских приложений. Несмотря на все достоинства, которые предоставляет данное решение (предсказуемое управление состоянием, удобная отладка с помощью Redux DevTools и др.), некоторые разработчики сетуют на излишнее количество “шаблонного кода” при реализации даже самого просто функционала и предпочитают альтернативные инструменты для управления состоянием в клиентских приложениях.',
       comments: [
         {
           id: 1,
-          author: 'Андрей',
-          idAuthor: 2,
-          email: 'andrey@gmail.com',
-          content: 'True',
+          author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' },
+          content: 'Спасибо за работу',
         },
         {
           id: 2,
-          author: 'Андрей',
-          idAuthor: 2,
-          email: 'andrey@gmail.com',
-          content: 'Cool',
+          author: { name: 'Андрей', id: 2, email: 'andrey@gmail.com' },
+          content: 'Обращайся',
         },
       ],
     },
     {
       id: 4,
-      idAuthor: 1,
-      author: 'Олег',
-      email: 'oleg@gmail.com',
+      author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' },
       heading: 'Как мы используем RTK Query в React-приложениях',
       content: 'sssssssssewwwwssss',
     },
     {
       id: 5,
-      idAuthor: 2,
-      author: 'Андрей',
-      email: 'andrey@gmail.com',
+      author: { name: 'Андрей', id: 2, email: 'andrey@gmail.com' },
       heading: 'Как мы используем RTK Query в React-приложениях',
       content: 'sssssssssewwwwssss',
     },

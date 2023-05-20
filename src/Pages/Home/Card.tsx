@@ -11,11 +11,19 @@ export const CardComponent = ({ post }: propsType) => {
   const [isComents, setIsComents] = useState(false)
   return (
     <Card>
-      <Card.Header>{post.author}</Card.Header>
-      <Card.Header>{post.email}</Card.Header>
       <Card.Body>
         <Card.Title>{post.heading}</Card.Title>
         <Card.Text>{post.content}</Card.Text>
+        <Card.Text>Автор:</Card.Text>
+        <div className='author-block'>
+          <img className='icon-placehold' src='http://placehold.it/48x48/' />
+          <div>
+            <div className='author-name-block'>
+              <div className='author-block-item'>{post.author.name}</div>
+              <div className='author-block-item'>{post.author.email}</div>
+            </div>
+          </div>
+        </div>
       </Card.Body>
       <ListGroup variant='flush'>
         {!isComents ? (
@@ -30,17 +38,19 @@ export const CardComponent = ({ post }: propsType) => {
             <ListGroup.Item>
               {post.comments ? (
                 post.comments?.map((comment: commentsType) => (
-                  <div className='comment-block'>
+                  <div key={comment.id} className='author-block'>
                     <img
                       className='icon-placehold'
                       src='http://placehold.it/48x48/'
                     />
                     <div>
-                      <div className='author-block'>
+                      <div className='author-name-block'>
                         <div className='author-block-item'>
-                          {comment.author}
+                          {comment.author.name}
                         </div>
-                        <div className='author-block-item'>{comment.email}</div>
+                        <div className='author-block-item'>
+                          {comment.author.email}
+                        </div>
                       </div>
                       <div className='comment-content'>{comment.content}</div>
                     </div>
