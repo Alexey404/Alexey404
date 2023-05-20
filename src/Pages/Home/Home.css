@@ -1,0 +1,47 @@
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.cardContainer {
+	width: 800px;
+}
+
+.card {
+	margin: 20px 0px;
+}
+
+.button-comments {
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.comment-block {
+	display: flex;
+	margin-top: 15px;
+}
+
+.author-block {
+	display: flex;
+}
+
+.author-block-item {
+	margin-left: 10px;
+}
+
+.icon-placehold {
+	border-radius: 30px;
+	width: 48px;
+	height: 48px;
+}
+
+.comment-content {
+	width: 100%;
+	margin: 0px 10px;
+}
+
+.no-comments {
+	display: flex;
+	justify-content: center;
+}
