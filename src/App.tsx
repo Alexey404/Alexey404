@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
 ])
 
-function App() {
+export const App = () => {
   return (
     <div className='App'>
       <RouterProvider router={router} />

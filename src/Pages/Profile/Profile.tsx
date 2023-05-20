@@ -1,20 +1,29 @@
+import { Card, Col, Container, Image } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { AppStateType } from '../../redux/store'
-import { Card, Container } from 'react-bootstrap'
 import { postType } from '../../redux/reducers/postsReducer'
+import { AppStateType } from '../../redux/store'
 import { CardComponent } from '../Home/Card'
-import { Author } from '../Home/Author'
+import './Profile.css'
 
 export const Profile = () => {
   const profile = useSelector((state: AppStateType) => state.profile)
-  console.log(profile)
+  const post = useSelector((state: AppStateType) => state.post)
+
   return (
     <Container>
       <div className='cardContainer'>
         <Card>
-          <Author author={profile.author} />
+          <div className='cardProfile'>
+            <Col xs={6} md={4}>
+              <Image src='http://placehold.it/171x180' roundedCircle />
+            </Col>
+            <div>
+              <h1>Автор: {profile.author.name}</h1>
+              <div>Почта: {profile.author.email}</div>
+            </div>
+          </div>
         </Card>
-        {profile.posts.map((e: postType) => (
+        {post.posts.map((e: postType) => (
           <CardComponent key={e.id} post={e} />
         ))}
       </div>

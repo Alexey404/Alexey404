@@ -10,10 +10,10 @@ function* workerSaga() {
   yield put({ type: 'SET_POSTS', peyload: data })
 }
 
-function* watchPostsSaga() {
+function* watchLoadPostsSaga() {
   yield takeLatest('GET_POSTS', workerSaga)
 }
 
-export function* listPostsSaga() {
-  yield all([fork(watchPostsSaga)])
+export function* commentsSaga() {
+  yield all([fork(watchLoadPostsSaga)])
 }

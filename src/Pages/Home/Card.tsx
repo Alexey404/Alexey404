@@ -29,9 +29,13 @@ export const CardComponent = ({ post }: propsType) => {
         ) : (
           <>
             <ListGroup.Item>
-              {post.comments ? (
+              {post.comments[0] ? (
                 post.comments?.map((comment: commentsType) => (
-                  <Author author={comment.author} content={comment.content} />
+                  <Author
+                    key={comment.id}
+                    author={comment.author}
+                    content={comment.content}
+                  />
                 ))
               ) : (
                 <div className='no-comments'>Нет комментариев</div>

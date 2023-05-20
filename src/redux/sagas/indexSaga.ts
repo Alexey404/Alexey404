@@ -1,6 +1,6 @@
-import { all, delay, takeEvery } from 'redux-saga/effects'
+import { all, fork } from 'redux-saga/effects'
 import { listPostsSaga } from './sagaPosts'
 
 export function* rootSaga() {
-  yield all([listPostsSaga()]) 
+  yield all([fork(listPostsSaga)])
 }
