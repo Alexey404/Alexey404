@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Layout } from './Components/Layout'
+import { Layout } from './Components/Layout/Layout'
 import { AboutMe } from './Pages/AboutMe/AboutMe'
 import { HomePage } from './Pages/Home/HomePage'
 import { Profile } from './Pages/Profile/Profile'

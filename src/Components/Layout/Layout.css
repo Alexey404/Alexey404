@@ -17,6 +17,18 @@
 	left: auto;
 }
 
+.dropdown-profile-card {
+	display: flex;
+	padding: 10px;
+}
+
+.dropdown-profile {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	text-align: right;
+}
+
 .navbar {
 	position: fixed;
 	min-width: 100%;

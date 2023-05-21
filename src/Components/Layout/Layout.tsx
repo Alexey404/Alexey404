@@ -1,6 +1,6 @@
 import MenuIcon from '@mui/icons-material/Menu'
 import { FC } from 'react'
-import { ButtonGroup, Container, Dropdown } from 'react-bootstrap'
+import { ButtonGroup, Container, Dropdown, Image } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import './Layout.css'
 import { Link } from 'react-router-dom'
@@ -30,6 +30,16 @@ export const Layout = ({ Component }: typeProps) => {
                 <MenuIcon />
               </Dropdown.Toggle>
               <Dropdown.Menu className='super-colors' align={{ lg: 'end' }}>
+                <div className='dropdown-profile-card'>
+                  <Image
+                    className='icon-placehold'
+                    src='http://placehold.it/48x48/'
+                  />
+                  <div className='dropdown-profile'>
+                    <div>Волик Алексей</div>
+                    <div>volik.aiii@gmail.com</div>
+                  </div>
+                </div>
                 <Dropdown.Item as={Link} to='/' eventKey='1'>
                   Список постов
                 </Dropdown.Item>
