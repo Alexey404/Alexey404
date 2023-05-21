@@ -1,8 +1,6 @@
 import Image from 'react-bootstrap/Image'
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { authorType } from '../redux/reducers/postsReducer'
-import { GET_PROFILE } from '../redux/actions'
 
 type propsAuthorType = {
   author: authorType
@@ -12,11 +10,9 @@ type propsAuthorType = {
 export const Author = (props: propsAuthorType) => {
   const navigation = useNavigate()
   const { name, email, id } = props.author
-  const dispatch = useDispatch()
 
   const clickHandler = (id: number) => {
     navigation('/profile/' + id)
-    dispatch({ type: GET_PROFILE, id, author: props.author })
   }
 
   return (

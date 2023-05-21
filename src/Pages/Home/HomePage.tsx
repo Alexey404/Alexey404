@@ -12,8 +12,6 @@ export const HomePage = () => {
   const post = useSelector((state: AppStateType) => state.post)
   const dispatch = useDispatch()
 
-  console.log(post)
-
   useEffect(() => {
     dispatch({ type: GET_POSTS })
   }, [dispatch])
