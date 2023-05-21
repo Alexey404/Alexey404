@@ -7,8 +7,9 @@ export const AboutMe = () => {
         <div className='cardContainer'>
           <Card>
             <Card.Body>
-              <Card.Title>Волик Алексей</Card.Title>
-              <Card.Text>О себе:</Card.Text>
+              <h2>Волик Алексей</h2>
+              <Card.Title>22 года, родился 1 марта 2001</Card.Title>
+              <h4>О себе:</h4>
               <Card.Text>Основное:</Card.Text>
               <Card.Text>
                 Я Frontend разработчик с опытом работы 1 год. Я хорошо знаю JS и
