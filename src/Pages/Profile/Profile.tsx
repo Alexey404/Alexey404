@@ -1,27 +1,25 @@
+import { useEffect } from 'react'
 import { Card, Col, Container, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import { CardComponent } from '../Home/Card'
-import { useEffect } from 'react'
-import { useParams } from 'react-router'
 import './Profile.css'
+import { GET_PROFILE } from '../../redux/actions'
 
 export const Profile = () => {
   const profile = useSelector((state: AppStateType) => state.profile)
   const post = useSelector((state: AppStateType) => state.post)
   const { id } = useParams()
-
-  console.log(Number(id))
-
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch({
-      type: 'GET_PROFILE',
+      type: GET_PROFILE,
       id: Number(id),
     })
-  }, [])
+  }, [dispatch, id])
 
   return (
     <Container>

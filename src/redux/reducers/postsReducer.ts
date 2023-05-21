@@ -1,3 +1,11 @@
+import {
+  LOAD_COMMENTS,
+  LOAD_POSTS,
+  PostsActions,
+  SET_COMMENTS,
+  SET_POSTS,
+} from '../actions'
+
 export type postType = {
   id: number
   author: authorType
@@ -28,29 +36,29 @@ const initialState = {
 
 export const postsReducer = (
   state: InitialStatePostsType = initialState,
-  action: any
+  action: PostsActions
 ) => {
   switch (action.type) {
-    case 'LOAD_POSTS': {
+    case LOAD_POSTS: {
       return {
         ...state,
         loading: true,
       }
     }
-    case 'SET_POSTS': {
+    case SET_POSTS: {
       return {
         ...state,
         posts: action.peyload,
         loading: false,
       }
     }
-    case 'LOAD_COMMENTS': {
+    case LOAD_COMMENTS: {
       const newPosts = state.posts.map(e =>
         e.id === action.peyload.id ? { ...e, loadComments: true } : e
       )
       return { ...state, posts: newPosts }
     }
-    case 'SET_COMMENTS': {
+    case SET_COMMENTS: {
       const newPosts = state.posts.map(e =>
         e.id === action.peyload.id
           ? { ...e, comments: action.peyload.data, loadComments: false }

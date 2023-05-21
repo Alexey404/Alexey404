@@ -4,6 +4,7 @@ import { commentsType, postType } from '../../redux/reducers/postsReducer'
 import './Home.css'
 import { Author } from './Author'
 import { useDispatch } from 'react-redux'
+import { GET_COMMENTS } from '../../redux/actions'
 
 type propsType = {
   post: postType
@@ -14,7 +15,7 @@ export const CardComponent = ({ post }: propsType) => {
   const dispatch = useDispatch()
 
   const handlerClick = (id: number) => {
-    dispatch({ type: 'GET_COMMENTS', id: id })
+    dispatch({ type: GET_COMMENTS, id: id })
     setIsComents(prev => !prev)
   }
 

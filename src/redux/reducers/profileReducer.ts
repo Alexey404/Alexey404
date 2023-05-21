@@ -1,3 +1,4 @@
+import { ProfileAction, SET_AUTOR } from '../actions'
 import { authorType } from './postsReducer'
 
 type InitialStatePostsType = typeof initialState
@@ -8,10 +9,10 @@ const initialState = {
 
 export const profileReducer = (
   state: InitialStatePostsType = initialState,
-  action: any
+  action: ProfileAction
 ) => {
   switch (action.type) {
-    case 'SET_AUTOR': {
+    case SET_AUTOR: {
       return {
         ...state,
         author: action.peyload,
