@@ -11,7 +11,7 @@ type typeProps = {
 
 export const Layout = ({ Component }: typeProps) => {
   return (
-    <>
+    <div>
       <div className='navbar-indent'>
         <Navbar
           key={10}
@@ -41,7 +41,10 @@ export const Layout = ({ Component }: typeProps) => {
           </Container>
         </Navbar>
       </div>
-      <Component />
-    </>
+      <div className='layout-contayner'>
+        <Component />
+      </div>
+      <div className='footer' />
+    </div>
   )
 }

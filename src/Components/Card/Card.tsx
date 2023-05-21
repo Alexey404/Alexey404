@@ -1,23 +1,23 @@
 import { useState } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { GET_COMMENTS } from '../redux/actions'
-import { postType } from '../redux/reducers/postsReducer'
-import './../Pages/Home/Home.css'
-import { Author } from './Author'
-import { Comments } from './Comments'
+import { GET_COMMENTS } from '../../redux/actions'
+import { postType } from '../../redux/reducers/postsReducer'
+import './Card.css'
+import { Author } from '../Author'
+import { Comments } from '../Comments'
 
 type propsType = {
   post: postType
 }
 
 export const CardComponent = ({ post }: propsType) => {
-  const [isComents, setIsComents] = useState(false)
+  const [isComments, setIsComments] = useState(false)
   const dispatch = useDispatch()
 
   const handlerClick = (id: number) => {
     dispatch({ type: GET_COMMENTS, id: id })
-    setIsComents(prev => !prev)
+    setIsComments(prev => !prev)
   }
 
   return (
@@ -25,12 +25,15 @@ export const CardComponent = ({ post }: propsType) => {
       <Card.Body>
         <Card.Title>{post.heading}</Card.Title>
         <Card.Text>{post.content}</Card.Text>
-        <Card.Text>Автор:</Card.Text>
-        <Author author={post.author} />
+        <div className='container-autor-post'>
+          <Card.Text>Автор:</Card.Text>
+
+          <Author author={post.author} />
+        </div>
       </Card.Body>
 
       <ListGroup variant='flush'>
-        {!isComents ? (
+        {!isComments ? (
           <ListGroup.Item
             className='button-comments'
             onClick={() => handlerClick(post.id)}
@@ -42,7 +45,7 @@ export const CardComponent = ({ post }: propsType) => {
             <Comments post={post} />
             <ListGroup.Item
               className='button-comments'
-              onClick={() => setIsComents(prev => !prev)}
+              onClick={() => setIsComments(prev => !prev)}
             >
               скрыть комментарии
             </ListGroup.Item>

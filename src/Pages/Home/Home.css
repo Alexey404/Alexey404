@@ -5,17 +5,11 @@
 
 .cardContainer {
 	width: 800px;
-	height: calc(100vh - 60px);
+	min-height: calc(100vh - 60px);
 }
 
 .card {
 	margin: 20px 0px;
-}
-
-.button-comments {
-	display: flex;
-	justify-content: center;
-	cursor: pointer;
 }
 
 .author-block {
