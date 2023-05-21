@@ -14,7 +14,7 @@ import { authorType, postType } from '../reducers/postsReducer'
 function* workerSaga({ id }: GetProfileAction) {
   yield put({ type: LOAD_POSTS })
   yield put({ type: LOAD_AUTOR })
-  yield delay(500)
+  yield delay(300)
 
   const listPost: AxiosPromise<Array<postType>> = yield getListPosts(id)
   const author: AxiosPromise<authorType> = yield getProfile(id)

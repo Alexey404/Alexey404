@@ -53,17 +53,16 @@ export const postsReducer = (
       }
     }
     case LOAD_COMMENTS: {
-      const newPosts = state.posts.map(e =>
-        e.id === action.id ? { ...e, loadComments: true } : e
+      const newPosts = state.posts.map(post =>
+        post.id === action.id ? { ...post, loadComments: true } : post
       )
-      console.log(action.id)
       return { ...state, posts: newPosts }
     }
     case SET_COMMENTS: {
-      const newPosts = state.posts.map(e =>
-        e.id === action.peyload.id
-          ? { ...e, comments: action.peyload.data, loadComments: false }
-          : e
+      const newPosts = state.posts.map(post =>
+        post.id === action.peyload.id
+          ? { ...post, comments: action.peyload.data, loadComments: false }
+          : post
       )
       return {
         ...state,

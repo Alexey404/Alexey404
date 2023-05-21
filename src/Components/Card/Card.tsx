@@ -47,7 +47,7 @@ export const CardComponent = ({ post }: propsType) => {
               className='button-comments'
               onClick={() => setIsComments(prev => !prev)}
             >
-              скрыть комментарии
+              Cкрыть комментарии
             </ListGroup.Item>
           </>
         )}

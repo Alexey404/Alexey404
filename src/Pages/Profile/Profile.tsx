@@ -10,8 +10,8 @@ import { GET_PROFILE } from '../../redux/actions'
 import { Loader } from '../../Components/Loader/Loader'
 
 export const Profile = () => {
-  const profile = useSelector((state: AppStateType) => state.profile)
-  const post = useSelector((state: AppStateType) => state.post)
+  const profileState = useSelector((state: AppStateType) => state.profileState)
+  const postState = useSelector((state: AppStateType) => state.postState)
   const { id } = useParams()
   const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ export const Profile = () => {
   return (
     <Container>
       <div className='cardContainer'>
-        {post.loading && post.loading ? (
+        {postState.loading && postState.loading ? (
           <Loader />
         ) : (
           <>
@@ -35,13 +35,13 @@ export const Profile = () => {
                   <Image src='http://placehold.it/171x180' roundedCircle />
                 </Col>
                 <div>
-                  <h1>Автор: {profile.author.name}</h1>
-                  <div>Почта: {profile.author.email}</div>
+                  <h1>Автор: {profileState.author.name}</h1>
+                  <div>Почта: {profileState.author.email}</div>
                 </div>
               </div>
             </Card>
-            {post.posts.map((e: postType) => (
-              <CardComponent key={e.id} post={e} />
+            {postState.posts.map((post: postType) => (
+              <CardComponent key={post.id} post={post} />
             ))}
           </>
         )}

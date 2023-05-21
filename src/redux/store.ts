@@ -5,8 +5,8 @@ import { profileReducer } from './reducers/profileReducer'
 import { rootSaga } from './sagas/rootSaga'
 
 const reducers = combineReducers({
-  post: postsReducer,
-  profile: profileReducer,
+  postState: postsReducer,
+  profileState: profileReducer,
 })
 
 const sagaMiddleware = createSagaMiddleware()

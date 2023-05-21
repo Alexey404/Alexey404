@@ -6,7 +6,7 @@ import { postType } from '../reducers/postsReducer'
 
 function* workerSaga() {
   yield put({ type: LOAD_POSTS })
-  yield delay(500)
+  yield delay(300)
 
   const listPosts: AxiosPromise<Array<postType>> = yield getListPosts(null)
 

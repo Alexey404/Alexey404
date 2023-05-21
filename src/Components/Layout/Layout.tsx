@@ -46,7 +46,7 @@ export const Layout = ({ Component }: typeProps) => {
                 <Dropdown.Item as={Link} to='/' eventKey='1'>
                   Список постов
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to='/AboutMe' eventKey='2'>
+                <Dropdown.Item as={Link} to='/aboutMe' eventKey='2'>
                   Обо мне
                 </Dropdown.Item>
               </Dropdown.Menu>

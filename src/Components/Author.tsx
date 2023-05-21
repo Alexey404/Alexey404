@@ -11,14 +11,10 @@ export const Author = (props: propsAuthorType) => {
   const navigation = useNavigate()
   const { name, email, id } = props.author
 
-  const clickHandler = (id: number) => {
-    navigation('/profile/' + id)
-  }
-
   return (
     <div className='author-block'>
       <Image
-        onClick={() => clickHandler(id)}
+        onClick={() => navigation('/profile/' + id)}
         className='icon-placehold'
         src='http://placehold.it/48x48/'
       />

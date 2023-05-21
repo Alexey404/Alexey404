@@ -9,7 +9,7 @@ import { GET_POSTS } from '../../redux/actions'
 import { Loader } from '../../Components/Loader/Loader'
 
 export const HomePage = () => {
-  const post = useSelector((state: AppStateType) => state.post)
+  const postState = useSelector((state: AppStateType) => state.postState)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -20,11 +20,11 @@ export const HomePage = () => {
     <>
       <Container>
         <div className='cardContainer'>
-          {post.loading ? (
+          {postState.loading ? (
             <Loader />
           ) : (
-            post.posts.map((e: postType) => (
-              <CardComponent key={e.id} post={e} />
+            postState.posts.map((post: postType) => (
+              <CardComponent key={post.id} post={post} />
             ))
           )}
         </div>

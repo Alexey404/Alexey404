@@ -11,7 +11,7 @@ import {
 
 function* workerSaga({ id }: GetCommentsAction) {
   yield put({ type: LOAD_COMMENTS, id })
-  yield delay(500)
+  yield delay(300)
 
   const data: AxiosPromise<commentsType> = yield getComments(id)
   const peyload = { data, id }

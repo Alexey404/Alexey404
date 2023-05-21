@@ -15,15 +15,15 @@ const router = createBrowserRouter([
     element: <Layout Component={Profile} />,
   },
   {
-    path: '/AboutMe',
+    path: '/aboutMe',
     element: <Layout Component={AboutMe} />,
   },
 ])
 
 export const App = () => {
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
-    </div>
+    </>
   )
 }

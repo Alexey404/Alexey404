@@ -41,7 +41,7 @@ export const AboutMe = () => {
                 но зависит от обстаятельств и не сразу, немного скромный
               </Card.Text>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <h2>Моя история разработки</h2>
+                <h2>Моя история 'Войти в IT'</h2>
               </div>
               <h4>Начало</h4>
               <Card.Text>
