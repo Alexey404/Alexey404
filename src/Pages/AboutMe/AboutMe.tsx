@@ -17,9 +17,20 @@ export const AboutMe = () => {
               <Card.Text>volik.aiii@gmail.com</Card.Text>
               <h4>Основное</h4>
               <Card.Text>
-                Я Frontend разработчик с опытом работы 1 год. Я хорошо знаю JS и
-                чуть больше базового понимания TS
+                Я Frontend разработчик с опытом работы 1 год.
               </Card.Text>
+              <Card.Text>
+                Хорошо знаю JS и чуть больше базового понимания TS.
+              </Card.Text>
+              <Card.Text>
+                <div>
+                  Мой гит:{' '}
+                  <a href='https://github.com/Alexey404?tab=repositories'>
+                    https://github.com/Alexey404?tab=repositories
+                  </a>
+                </div>
+              </Card.Text>
+
               <h4>Навыки</h4>
               <Card.Text>
                 React, Apollo GraphQL, Redux, Express, TypeScript, Node.js,
@@ -27,7 +38,7 @@ export const AboutMe = () => {
               </Card.Text>
               <h4>Личные качества</h4>
               <Card.Text>
-                прямолинейный, честный, неконфликтный, скромный, душа компании
+                Прямолинейный, честный, неконфликтный, скромный, душа компании
                 но зависит от обстаятельств и не сразу, немного скромный
               </Card.Text>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
