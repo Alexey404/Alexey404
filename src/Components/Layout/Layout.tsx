@@ -22,7 +22,10 @@ export const Layout = ({ Component }: typeProps) => {
         >
           <Container>
             <Navbar.Brand as={Link} to='/'>
-              React SPA
+              Назад
+              {
+                // (обычно логотип используется как переход на главную странницу в данном случае будет выполнять функцию назад)
+              }
             </Navbar.Brand>
 
             <Dropdown as={ButtonGroup}>
