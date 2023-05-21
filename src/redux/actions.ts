@@ -26,7 +26,7 @@ export interface SetPostsAction {
 export const LOAD_COMMENTS = 'LOAD_COMMENTS'
 export interface LoadCommentsAction {
   type: typeof LOAD_COMMENTS
-  peyload: { id: number }
+  id: number
 }
 
 export const GET_PROFILE = 'GET_PROFILE'
@@ -51,4 +51,9 @@ export interface SetAutorAction {
   peyload: authorType
 }
 
-export type ProfileAction = SetAutorAction
+export const LOAD_AUTOR = 'LOAD_AUTOR'
+export interface LoadAutorAction {
+  type: typeof LOAD_AUTOR
+}
+
+export type ProfileAction = SetAutorAction | LoadAutorAction

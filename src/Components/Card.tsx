@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
-import { commentsType, postType } from '../../redux/reducers/postsReducer'
-import './Home.css'
-import { Author } from './Author'
 import { useDispatch } from 'react-redux'
-import { GET_COMMENTS } from '../../redux/actions'
+import { GET_COMMENTS } from '../redux/actions'
+import { postType } from '../redux/reducers/postsReducer'
+import './../Pages/Home/Home.css'
+import { Author } from './Author'
+import { Comments } from './Comments'
 
 type propsType = {
   post: postType
@@ -27,6 +28,7 @@ export const CardComponent = ({ post }: propsType) => {
         <Card.Text>Автор:</Card.Text>
         <Author author={post.author} />
       </Card.Body>
+
       <ListGroup variant='flush'>
         {!isComents ? (
           <ListGroup.Item
@@ -37,19 +39,7 @@ export const CardComponent = ({ post }: propsType) => {
           </ListGroup.Item>
         ) : (
           <>
-            <ListGroup.Item>
-              {post.comments[0] ? (
-                post.comments?.map((comment: commentsType) => (
-                  <Author
-                    key={comment.id}
-                    author={comment.author}
-                    content={comment.content}
-                  />
-                ))
-              ) : (
-                <div className='no-comments'>Нет комментариев</div>
-              )}
-            </ListGroup.Item>
+            <Comments post={post} />
             <ListGroup.Item
               className='button-comments'
               onClick={() => setIsComents(prev => !prev)}

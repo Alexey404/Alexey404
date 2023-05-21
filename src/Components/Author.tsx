@@ -1,8 +1,8 @@
 import Image from 'react-bootstrap/Image'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { authorType } from '../../redux/reducers/postsReducer'
-import { GET_PROFILE } from '../../redux/actions'
+import { authorType } from '../redux/reducers/postsReducer'
+import { GET_PROFILE } from '../redux/actions'
 
 type propsAuthorType = {
   author: authorType

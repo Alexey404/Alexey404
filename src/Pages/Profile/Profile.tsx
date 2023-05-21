@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
-import { CardComponent } from '../Home/Card'
+import { CardComponent } from '../../Components/Card'
 import './Profile.css'
 import { GET_PROFILE } from '../../redux/actions'
+import { Loader } from '../../Components/Loader/Loader'
 
 export const Profile = () => {
   const profile = useSelector((state: AppStateType) => state.profile)
@@ -24,20 +25,26 @@ export const Profile = () => {
   return (
     <Container>
       <div className='cardContainer'>
-        <Card>
-          <div className='cardProfile'>
-            <Col xs={6} md={4}>
-              <Image src='http://placehold.it/171x180' roundedCircle />
-            </Col>
-            <div>
-              <h1>Автор: {profile.author.name}</h1>
-              <div>Почта: {profile.author.email}</div>
-            </div>
-          </div>
-        </Card>
-        {post.posts.map((e: postType) => (
-          <CardComponent key={e.id} post={e} />
-        ))}
+        {post.loading && post.loading ? (
+          <Loader />
+        ) : (
+          <>
+            <Card>
+              <div className='cardProfile'>
+                <Col xs={6} md={4}>
+                  <Image src='http://placehold.it/171x180' roundedCircle />
+                </Col>
+                <div>
+                  <h1>Автор: {profile.author.name}</h1>
+                  <div>Почта: {profile.author.email}</div>
+                </div>
+              </div>
+            </Card>
+            {post.posts.map((e: postType) => (
+              <CardComponent key={e.id} post={e} />
+            ))}
+          </>
+        )}
       </div>
     </Container>
   )
