@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <Layout Component={HomePage} />,
   },
   {
-    path: '/profile',
+    path: '/profile/:id',
     element: <Layout Component={Profile} />,
   },
   {

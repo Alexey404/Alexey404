@@ -4,10 +4,14 @@ import { getListPosts } from '../../axios/Api'
 
 function* workerSaga() {
   console.log('start get posts')
+
   yield put({ type: 'LOAD_POSTS' })
-  yield delay(1000)
-  const data: AxiosPromise = yield call(getListPosts)
+  yield delay(500)
+
+  const data: AxiosPromise = yield getListPosts(null)
+
   yield put({ type: 'SET_POSTS', peyload: data })
+
   console.log('finish get posts')
 }
 

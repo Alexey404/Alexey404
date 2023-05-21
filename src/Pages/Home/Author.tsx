@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { authorType } from '../../redux/reducers/postsReducer'
 import Image from 'react-bootstrap/Image'
+import { useDispatch } from 'react-redux'
 
 type propsAuthorType = {
   author: authorType
@@ -8,12 +9,22 @@ type propsAuthorType = {
 }
 
 export const Author = (props: propsAuthorType) => {
+  const navigation = useNavigate()
   const { name, email, id } = props.author
+  const dispatch = useDispatch()
+
+  const clickHandler = (id: number) => {
+    navigation('/profile/' + id)
+    dispatch({ type: 'GET_PROFILE', id, author: props.author })
+  }
   return (
     <div className='author-block'>
-      <Link to='/profile' onClick={() => console.log(id)}>
-        <Image className='icon-placehold' src='http://placehold.it/48x48/' />
-      </Link>
+      <Image
+        onClick={() => clickHandler(id)}
+        className='icon-placehold'
+        src='http://placehold.it/48x48/'
+      />
+
       <div>
         <div className='author-name-block'>
           <div className='author-block-item'>{name}</div>

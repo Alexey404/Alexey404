@@ -4,16 +4,23 @@ import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import { CardComponent } from '../Home/Card'
 import { useEffect } from 'react'
+import { useParams } from 'react-router'
 import './Profile.css'
 
 export const Profile = () => {
   const profile = useSelector((state: AppStateType) => state.profile)
   const post = useSelector((state: AppStateType) => state.post)
+  const { id } = useParams()
+
+  console.log(Number(id))
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({ type: 'GET_POSTS' })
+    dispatch({
+      type: 'GET_PROFILE',
+      id: Number(id),
+    })
   }, [])
 
   return (

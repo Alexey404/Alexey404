@@ -11,13 +11,13 @@ export const profileReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case 'SET_PROFILE': {
+    case 'SET_AUTOR': {
       return {
         ...state,
         author: action.peyload,
       }
     }
-    
+
     default:
       return state
   }
