@@ -22,13 +22,12 @@ export const AboutMe = () => {
               <Card.Text>
                 Хорошо знаю JS и чуть больше базового понимания TS.
               </Card.Text>
+
               <Card.Text>
-                <div>
-                  Мой гит:{' '}
-                  <a href='https://github.com/Alexey404?tab=repositories'>
-                    https://github.com/Alexey404?tab=repositories
-                  </a>
-                </div>
+                Мой гит:{' '}
+                <a href='https://github.com/Alexey404?tab=repositories'>
+                  https://github.com/Alexey404?tab=repositories
+                </a>
               </Card.Text>
 
               <h4>Навыки</h4>
