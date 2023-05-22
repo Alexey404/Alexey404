@@ -32,7 +32,7 @@ export const Profile = () => {
             <Card>
               <div className='cardProfile'>
                 <Col xs={6} md={4}>
-                  <Image src='http://placehold.it/171x180' roundedCircle />
+                  <Image src='https://placehold.it/171x180' roundedCircle />
                 </Col>
                 <div>
                   <h1>Автор: {profileState.author.name}</h1>

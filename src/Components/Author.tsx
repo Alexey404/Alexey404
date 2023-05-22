@@ -16,7 +16,7 @@ export const Author = (props: propsAuthorType) => {
       <Image
         onClick={() => navigation('/profile/' + id)}
         className='icon-placehold'
-        src='http://placehold.it/48x48/'
+        src='https://placehold.it/48x48/'
       />
 
       <div>

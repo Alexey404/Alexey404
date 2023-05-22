@@ -36,7 +36,7 @@ export const Layout = ({ Component }: typeProps) => {
                 <div className='dropdown-profile-card'>
                   <Image
                     className='icon-placehold'
-                    src='http://placehold.it/48x48/'
+                    src='https://placehold.it/48x48/'
                   />
                   <div className='dropdown-profile'>
                     <div>Волик Алексей</div>
