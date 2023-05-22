@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, spawn, put, takeLatest } from 'redux-saga/effects'
+import { all, delay, spawn, put, takeEvery } from 'redux-saga/effects'
 import { getListPosts } from '../../axios/Api'
 import { GET_POSTS, LOAD_POSTS, SET_POSTS } from '../actions'
 import { postType } from '../reducers/postsReducer'
@@ -17,7 +17,7 @@ function* workerSaga() {
 }
 
 function* watchPostsSaga() {
-  yield takeLatest(GET_POSTS, workerSaga)
+  yield takeEvery(GET_POSTS, workerSaga)
 }
 
 export function* listPostsSaga() {

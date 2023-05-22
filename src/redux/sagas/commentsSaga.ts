@@ -1,15 +1,15 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, spawn, put, takeLatest } from 'redux-saga/effects'
+import { all, delay, put, spawn, takeEvery } from 'redux-saga/effects'
 import { getComments } from '../../axios/Api'
-import { commentsType } from '../reducers/postsReducer'
 import {
   GET_COMMENTS,
   GetCommentsAction,
   LOAD_COMMENTS,
   SET_COMMENTS,
 } from '../actions'
+import { commentsType } from '../reducers/postsReducer'
 
-function* workerSaga({ id }: GetCommentsAction) {
+function* workerSaga({ id }: GetCommentsAction): any {
   yield put({ type: LOAD_COMMENTS, id })
   yield delay(300)
 
@@ -19,7 +19,7 @@ function* workerSaga({ id }: GetCommentsAction) {
 }
 
 function* watchLoadPostsSaga() {
-  yield takeLatest(GET_COMMENTS, workerSaga)
+  yield takeEvery(GET_COMMENTS, workerSaga)
 }
 
 export function* commentsSaga() {
