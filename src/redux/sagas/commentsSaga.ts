@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, fork, put, takeLatest } from 'redux-saga/effects'
+import { all, delay, spawn, put, takeLatest } from 'redux-saga/effects'
 import { getComments } from '../../axios/Api'
 import { commentsType } from '../reducers/postsReducer'
 import {
@@ -23,5 +23,5 @@ function* watchLoadPostsSaga() {
 }
 
 export function* commentsSaga() {
-  yield all([fork(watchLoadPostsSaga)])
+  yield all([spawn(watchLoadPostsSaga)])
 }

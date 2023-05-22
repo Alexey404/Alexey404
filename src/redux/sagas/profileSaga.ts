@@ -1,26 +1,26 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, fork, put, takeLatest } from 'redux-saga/effects'
-import { getListPosts, getProfile } from '../../axios/Api'
+import { all, delay, put, spawn, takeLatest } from 'redux-saga/effects'
+import { getProfile } from '../../axios/Api'
 import {
   GET_PROFILE,
   GetProfileAction,
   LOAD_AUTOR,
-  LOAD_POSTS,
   SET_AUTOR,
-  SET_POSTS,
 } from '../actions'
-import { authorType, postType } from '../reducers/postsReducer'
+import { authorType } from '../reducers/postsReducer'
+import { getPostSaga } from './postsSaga'
 
-function* workerSaga({ id }: GetProfileAction) {
-  yield put({ type: LOAD_POSTS })
+function* getAutorSaga(id: number) {
   yield put({ type: LOAD_AUTOR })
   yield delay(300)
 
-  const listPost: AxiosPromise<Array<postType>> = yield getListPosts(id)
   const author: AxiosPromise<authorType> = yield getProfile(id)
-
-  yield put({ type: SET_POSTS, peyload: listPost })
   yield put({ type: SET_AUTOR, peyload: author })
+}
+
+function* workerSaga({ id }: GetProfileAction) {
+  yield spawn(getPostSaga, id)
+  yield spawn(getAutorSaga, id)
 }
 
 function* watchPostsSaga() {
@@ -28,5 +28,5 @@ function* watchPostsSaga() {
 }
 
 export function* profileSaga() {
-  yield all([fork(watchPostsSaga)])
+  yield all([spawn(watchPostsSaga)])
 }

@@ -1,16 +1,19 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, fork, put, takeLatest } from 'redux-saga/effects'
+import { all, delay, spawn, put, takeLatest } from 'redux-saga/effects'
 import { getListPosts } from '../../axios/Api'
 import { GET_POSTS, LOAD_POSTS, SET_POSTS } from '../actions'
 import { postType } from '../reducers/postsReducer'
 
-function* workerSaga() {
+export function* getPostSaga(id: number | null) {
   yield put({ type: LOAD_POSTS })
   yield delay(300)
 
-  const listPosts: AxiosPromise<Array<postType>> = yield getListPosts(null)
+  const listPost: AxiosPromise<Array<postType>> = yield getListPosts(id)
+  yield put({ type: SET_POSTS, peyload: listPost })
+}
 
-  yield put({ type: SET_POSTS, peyload: listPosts })
+function* workerSaga() {
+  yield spawn(getPostSaga, null)
 }
 
 function* watchPostsSaga() {
@@ -18,5 +21,5 @@ function* watchPostsSaga() {
 }
 
 export function* listPostsSaga() {
-  yield all([fork(watchPostsSaga)])
+  yield all([spawn(watchPostsSaga)])
 }

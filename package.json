@@ -1,5 +1,6 @@
 {
   "name": "task-for-mitrasoft",
+  "homepage": "https://alexey404.github.io/ListPosts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

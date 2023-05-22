@@ -1,11 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {
+  RouterProvider,
+  createHashRouter
+} from 'react-router-dom'
 import { Layout } from './Components/Layout/Layout'
 import { AboutMe } from './Pages/AboutMe/AboutMe'
 import { HomePage } from './Pages/Home/HomePage'
 import { Profile } from './Pages/Profile/Profile'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Layout Component={HomePage} />,
