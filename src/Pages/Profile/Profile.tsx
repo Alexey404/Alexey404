@@ -25,7 +25,7 @@ export const Profile = () => {
   return (
     <Container>
       <div className='cardContainer'>
-        {postState.loading && postState.loading ? (
+        {postState.loading && profileState.isLoad ? (
           <Loader />
         ) : (
           <>
