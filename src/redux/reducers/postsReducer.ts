@@ -11,7 +11,7 @@ export type postType = {
   author: authorType
   content: string
   heading: string
-  loadComments: boolean
+  isLoading: boolean
   comments: Array<commentsType>
 }
 
@@ -31,7 +31,7 @@ type InitialStatePostsType = typeof initialState
 
 const initialState = {
   posts: [] as Array<postType>,
-  loading: false,
+  isLoading: false,
 }
 
 export const postsReducer = (
@@ -42,26 +42,26 @@ export const postsReducer = (
     case LOAD_POSTS: {
       return {
         ...state,
-        loading: true,
+        isLoading: true,
       }
     }
     case SET_POSTS: {
       return {
         ...state,
         posts: action.peyload,
-        loading: false,
+        isLoading: false,
       }
     }
     case LOAD_COMMENTS: {
       const newPosts = state.posts.map(post =>
-        post.id === action.id ? { ...post, loadComments: true } : post
+        post.id === action.id ? { ...post, isLoading: true } : post
       )
       return { ...state, posts: newPosts }
     }
     case SET_COMMENTS: {
       const newPosts = state.posts.map(post =>
         post.id === action.peyload.id
-          ? { ...post, comments: action.peyload.data, loadComments: false }
+          ? { ...post, comments: action.peyload.data, isLoading: false }
           : post
       )
       return {

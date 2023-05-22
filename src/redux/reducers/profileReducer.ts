@@ -5,7 +5,7 @@ type InitialStatePostsType = typeof initialState
 
 const initialState = {
   author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' } as authorType,
-  isLoad: false,
+  isLoading: false,
 }
 
 export const profileReducer = (
@@ -16,14 +16,14 @@ export const profileReducer = (
     case LOAD_AUTOR: {
       return {
         ...state,
-        isLoad: true,
+        isLoading: true,
       }
     }
     case SET_AUTOR: {
       return {
         ...state,
         author: action.peyload,
-        isLoad: false,
+        isLoading: false,
       }
     }
 

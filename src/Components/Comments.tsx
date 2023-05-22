@@ -10,7 +10,7 @@ type propsType = {
 export const Comments = ({ post }: propsType) => {
   return (
     <ListGroup.Item>
-      {post.loadComments ? (
+      {post.isLoading ? (
         <Loader />
       ) : post.comments[0] ? (
         post.comments.map((comment: commentsType) => (

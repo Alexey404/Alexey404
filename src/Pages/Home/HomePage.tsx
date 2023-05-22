@@ -20,7 +20,7 @@ export const HomePage = () => {
     <>
       <Container>
         <div className='cardContainer'>
-          {postState.loading ? (
+          {postState.isLoading ? (
             <Loader />
           ) : (
             postState.posts.map((post: postType) => (
