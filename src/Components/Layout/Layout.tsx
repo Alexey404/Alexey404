@@ -3,13 +3,15 @@ import { FC } from 'react'
 import { ButtonGroup, Container, Dropdown, Image } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import './Layout.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 type typeProps = {
   Component: FC
 }
 
 export const Layout = ({ Component }: typeProps) => {
+  const location = useLocation()
+
   return (
     <div>
       <div className='navbar-indent'>
@@ -43,10 +45,18 @@ export const Layout = ({ Component }: typeProps) => {
                     <div>volik.aiii@gmail.com</div>
                   </div>
                 </div>
-                <Dropdown.Item as={Link} to='/' eventKey='1'>
+                <Dropdown.Item
+                  as={Link}
+                  to='/'
+                  active={location.pathname === '/'}
+                >
                   Список постов
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to='/aboutMe' eventKey='2'>
+                <Dropdown.Item
+                  as={Link}
+                  to='/aboutMe'
+                  active={location.pathname === '/aboutMe'}
+                >
                   Обо мне
                 </Dropdown.Item>
               </Dropdown.Menu>
