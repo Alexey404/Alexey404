@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, spawn, put, takeEvery } from 'redux-saga/effects'
+import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
 import { getListPosts } from '../../axios/Api'
 import { GET_POSTS, LOAD_POSTS, SET_POSTS } from '../actions'
 import { postType } from '../reducers/postsReducer'
@@ -21,5 +21,5 @@ function* watchPostsSaga() {
 }
 
 export function* listPostsSaga() {
-  yield all([spawn(watchPostsSaga)])
+  yield spawn(watchPostsSaga)
 }

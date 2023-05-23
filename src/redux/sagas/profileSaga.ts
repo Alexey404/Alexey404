@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios'
-import { all, delay, put, spawn, takeEvery } from 'redux-saga/effects'
+import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
 import { getProfile } from '../../axios/Api'
 import {
   GET_PROFILE,
@@ -28,5 +28,5 @@ function* watchPostsSaga() {
 }
 
 export function* profileSaga() {
-  yield all([spawn(watchPostsSaga)])
+  yield spawn(watchPostsSaga)
 }

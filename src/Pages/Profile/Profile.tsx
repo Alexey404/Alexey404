@@ -24,13 +24,13 @@ export const Profile = () => {
 
   return (
     <Container>
-      <div className='cardContainer'>
+      <div className='card-сontainer'>
         {postState.isLoading && profileState.isLoading ? (
           <Loader />
         ) : (
           <>
             <Card>
-              <div className='cardProfile'>
+              <div className='card-profile'>
                 <Col xs={6} md={4}>
                   <Image src='https://placehold.it/171x180' roundedCircle />
                 </Col>

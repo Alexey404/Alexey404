@@ -19,7 +19,7 @@ export const HomePage = () => {
   return (
     <>
       <Container>
-        <div className='cardContainer'>
+        <div className='card-сontainer'>
           {postState.isLoading ? (
             <Loader />
           ) : (

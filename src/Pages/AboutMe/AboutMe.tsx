@@ -4,7 +4,7 @@ export const AboutMe = () => {
   return (
     <div>
       <Container>
-        <div className='cardContainer'>
+        <div className='card-сontainer'>
           <Card>
             <Card.Body>
               <h2>Волик Алексей</h2>
@@ -37,8 +37,7 @@ export const AboutMe = () => {
               </Card.Text>
               <h4>Личные качества</h4>
               <Card.Text>
-                Прямолинейный, честный, неконфликтный, немного
-                скромный
+                Прямолинейный, честный, неконфликтный, немного скромный
               </Card.Text>
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <h2>Моя история 'Войти в IT'</h2>
