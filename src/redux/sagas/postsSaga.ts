@@ -4,7 +4,7 @@ import { getListPosts } from '../../axios/Api'
 import { GET_POSTS, LOAD_POSTS, SET_POSTS } from '../actions'
 import { postType } from '../reducers/postsReducer'
 
-export function* getPostSaga(id: number | null) {
+export function* getPostSaga(id: number | null = null) {
   yield put({ type: LOAD_POSTS })
   yield delay(300)
 
@@ -13,7 +13,7 @@ export function* getPostSaga(id: number | null) {
 }
 
 function* workerSaga() {
-  yield spawn(getPostSaga, null)
+  yield spawn(getPostSaga)
 }
 
 function* watchPostsSaga() {
