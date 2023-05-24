@@ -35,16 +35,24 @@ export const Layout = ({ Component }: typeProps) => {
                 <MenuIcon />
               </Dropdown.Toggle>
               <Dropdown.Menu className='super-colors' align={{ lg: 'end' }}>
-                <div className='dropdown-profile-card'>
-                  <Image
-                    className='icon-placehold'
-                    src='https://placehold.it/48x48/'
-                  />
-                  <div className='dropdown-profile'>
-                    <div>Волик Алексей</div>
-                    <div>volik.aiii@gmail.com</div>
+                <Dropdown.Item
+                  as={Link}
+                  to={'/profile/' + 3}
+                  active={location.pathname === '/profile/' + 3}
+                >
+                  <div className='dropdown-profile-card'>
+                    <Image
+                      className='icon-placehold'
+                      src='https://placehold.it/48x48/'
+                    />
+
+                    <div className='dropdown-profile'>
+                      <div>Волик Алексей</div>
+                      <div>volik.aiii@gmail.com</div>
+                    </div>
                   </div>
-                </div>
+                </Dropdown.Item>
+
                 <Dropdown.Item
                   as={Link}
                   to='/'

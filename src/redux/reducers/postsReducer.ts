@@ -1,4 +1,6 @@
 import {
+  ERROR_COMMENTS,
+  ERROR_POSTS,
   LOAD_COMMENTS,
   LOAD_POSTS,
   PostsActions,
@@ -12,6 +14,7 @@ export type postType = {
   content: string
   heading: string
   isLoading: boolean
+  isError: boolean
   comments: Array<commentsType>
 }
 
@@ -32,6 +35,7 @@ type InitialStatePostsType = typeof initialState
 const initialState = {
   posts: [] as Array<postType>,
   isLoading: false,
+  isError: false,
 }
 
 export const postsReducer = (
@@ -43,6 +47,7 @@ export const postsReducer = (
       return {
         ...state,
         isLoading: true,
+        isError: false,
       }
     }
     case SET_POSTS: {
@@ -52,9 +57,18 @@ export const postsReducer = (
         isLoading: false,
       }
     }
+    case ERROR_POSTS: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      }
+    }
     case LOAD_COMMENTS: {
       const newPosts = state.posts.map(post =>
-        post.id === action.id ? { ...post, isLoading: true } : post
+        post.id === action.id
+          ? { ...post, isLoading: true, isError: false }
+          : post
       )
       return { ...state, posts: newPosts }
     }
@@ -68,6 +82,15 @@ export const postsReducer = (
         ...state,
         posts: newPosts,
       }
+    }
+    case ERROR_COMMENTS: {
+      const newPosts = state.posts.map(post =>
+        post.id === action.id
+          ? { ...post, isLoading: false, isError: true }
+          : post
+      )
+      console.log(action)
+      return { ...state, posts: newPosts }
     }
     default:
       return state

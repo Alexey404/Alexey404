@@ -1,13 +1,14 @@
-import { useEffect } from 'react'
+import { useEffect, memo } from 'react'
 import { Card, Col, Container, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
+import { Navigate } from 'react-router-dom'
+import { CardComponent } from '../../Components/Card/Card'
+import { Loader } from '../../Components/Loader/Loader'
+import { GET_PROFILE } from '../../redux/actions'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
-import { CardComponent } from '../../Components/Card/Card'
 import './Profile.css'
-import { GET_PROFILE } from '../../redux/actions'
-import { Loader } from '../../Components/Loader/Loader'
 
 export const Profile = () => {
   const profileState = useSelector((state: AppStateType) => state.profileState)
@@ -21,6 +22,10 @@ export const Profile = () => {
       id: Number(id),
     })
   }, [dispatch, id])
+
+  if (postState.isError || profileState.isError) {
+    return <Navigate to='/error' />
+  }
 
   return (
     <Container>

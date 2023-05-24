@@ -2,6 +2,7 @@ import { AxiosPromise } from 'axios'
 import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
 import { getProfile } from '../../axios/Api'
 import {
+  ERROR_AUTOR,
   GET_PROFILE,
   GetProfileAction,
   LOAD_AUTOR,
@@ -14,8 +15,12 @@ function* getAutorSaga(id: number) {
   yield put({ type: LOAD_AUTOR })
   yield delay(300)
 
-  const author: AxiosPromise<authorType> = yield getProfile(id)
-  yield put({ type: SET_AUTOR, peyload: author })
+  try {
+    const author: AxiosPromise<authorType> = yield getProfile(id)
+    yield put({ type: SET_AUTOR, peyload: author })
+  } catch {
+    yield put({ type: ERROR_AUTOR })
+  }
 }
 
 function* workerSaga({ id }: GetProfileAction) {

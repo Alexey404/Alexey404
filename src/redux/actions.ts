@@ -39,11 +39,25 @@ export interface GetPostsAction {
   type: typeof GET_POSTS
 }
 
+export const ERROR_COMMENTS = 'ERROR_COMMENTS'
+export interface ErrorCommentsAction {
+  type: typeof ERROR_COMMENTS
+  id: number
+}
+export const ERROR_POSTS = 'ERROR_POSTS'
+export interface ErrorPostsAction {
+  type: typeof ERROR_POSTS
+}
+
 export type PostsActions =
   | SetCommentsAction
   | LoadPostsAction
   | SetPostsAction
+  | ErrorPostsAction
   | LoadCommentsAction
+  | ErrorCommentsAction
+
+//<-------------------------------------------------------------ACtion Profile------------------------------------------------->
 
 export const SET_AUTOR = 'SET_AUTOR'
 export interface SetAutorAction {
@@ -55,5 +69,9 @@ export const LOAD_AUTOR = 'LOAD_AUTOR'
 export interface LoadAutorAction {
   type: typeof LOAD_AUTOR
 }
+export const ERROR_AUTOR = 'ERROR_AUTOR'
+export interface ErrorAutorAction {
+  type: typeof ERROR_AUTOR
+}
 
-export type ProfileAction = SetAutorAction | LoadAutorAction
+export type ProfileAction = SetAutorAction | LoadAutorAction | ErrorAutorAction

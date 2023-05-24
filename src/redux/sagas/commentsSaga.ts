@@ -2,6 +2,7 @@ import { AxiosPromise } from 'axios'
 import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
 import { getComments } from '../../axios/Api'
 import {
+  ERROR_COMMENTS,
   GET_COMMENTS,
   GetCommentsAction,
   LOAD_COMMENTS,
@@ -13,9 +14,13 @@ function* workerSaga({ id }: GetCommentsAction): any {
   yield put({ type: LOAD_COMMENTS, id })
   yield delay(300)
 
-  const data: AxiosPromise<commentsType> = yield getComments(id)
-  const peyload = { data, id }
-  yield put({ type: SET_COMMENTS, peyload })
+  try {
+    const data: AxiosPromise<commentsType> = yield getComments(id)
+    const peyload = { data, id }
+    yield put({ type: SET_COMMENTS, peyload })
+  } catch {
+    yield put({ type: ERROR_COMMENTS, id })
+  }
 }
 
 function* watchLoadPostsSaga() {
