@@ -4,7 +4,6 @@ import { Layout } from './Components/Layout/Layout'
 import { AboutMe } from './Pages/AboutMe/AboutMe'
 import { HomePage } from './Pages/Home/HomePage'
 import { Profile } from './Pages/Profile/Profile'
-import { ErrorPage } from './Pages/Error/Error'
 
 const router = createHashRouter([
   {
@@ -18,10 +17,6 @@ const router = createHashRouter([
   {
     path: '/aboutMe',
     element: <Layout Component={AboutMe} />,
-  },
-  {
-    path: '/error',
-    element: <Layout Component={ErrorPage} />,
   },
 ])
 

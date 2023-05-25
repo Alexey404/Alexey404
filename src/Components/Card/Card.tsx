@@ -16,7 +16,7 @@ export const CardComponent = ({ post }: propsType) => {
   const dispatch = useDispatch()
 
   const handlerClick = (id: number) => {
-    dispatch({ type: GET_COMMENTS, id: id })
+    dispatch({ type: GET_COMMENTS, id })
     setIsComments(prev => !prev)
   }
 

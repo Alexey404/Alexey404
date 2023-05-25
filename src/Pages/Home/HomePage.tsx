@@ -7,7 +7,6 @@ import { GET_POSTS } from '../../redux/actions'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import './Home.css'
-import { Navigate } from 'react-router-dom'
 
 export const HomePage = () => {
   const postState = useSelector((state: AppStateType) => state.postState)
@@ -16,10 +15,6 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch({ type: GET_POSTS })
   }, [dispatch])
-
-  if (postState.isError) {
-    return <Navigate to='/error' />
-  }
 
   return (
     <>

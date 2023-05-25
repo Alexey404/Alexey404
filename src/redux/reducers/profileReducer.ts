@@ -22,7 +22,6 @@ export const profileReducer = (
       }
     }
     case ERROR_AUTOR: {
-      console.log('ERROR')
       return {
         ...state,
         isLoading: false,

@@ -10,7 +10,6 @@ type propsType = {
 
 export const Comments = ({ post }: propsType) => {
   const CommentsMap = () => {
-    console.log('render')
     return (
       <>
         {post.comments[0] ? (

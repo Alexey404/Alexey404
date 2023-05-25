@@ -34,6 +34,7 @@ export const Layout = ({ Component }: typeProps) => {
               <Dropdown.Toggle className='dropdown-layout' variant='secondary'>
                 <MenuIcon />
               </Dropdown.Toggle>
+
               <Dropdown.Menu className='super-colors' align={{ lg: 'end' }}>
                 <Dropdown.Item
                   as={Link}
@@ -60,6 +61,7 @@ export const Layout = ({ Component }: typeProps) => {
                 >
                   Список постов
                 </Dropdown.Item>
+
                 <Dropdown.Item
                   as={Link}
                   to='/aboutMe'
@@ -72,9 +74,11 @@ export const Layout = ({ Component }: typeProps) => {
           </Container>
         </Navbar>
       </div>
+
       <div className='layout-contayner'>
         <Component />
       </div>
+
       <div className='footer' />
     </div>
   )

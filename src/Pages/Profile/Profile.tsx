@@ -1,11 +1,10 @@
-import { useEffect, memo } from 'react'
+import { useEffect } from 'react'
 import { Card, Col, Container, Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { Navigate } from 'react-router-dom'
 import { CardComponent } from '../../Components/Card/Card'
 import { Loader } from '../../Components/Loader/Loader'
-import { GET_PROFILE } from '../../redux/actions'
+import { GET_PROFILE, LOAD_AUTOR, LOAD_POSTS } from '../../redux/actions'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import './Profile.css'
@@ -21,11 +20,15 @@ export const Profile = () => {
       type: GET_PROFILE,
       id: Number(id),
     })
+    return () => {
+      dispatch({
+        type: LOAD_AUTOR,
+      })
+      dispatch({
+        type: LOAD_POSTS,
+      })
+    }
   }, [dispatch, id])
-
-  if (postState.isError || profileState.isError) {
-    return <Navigate to='/error' />
-  }
 
   return (
     <Container>
