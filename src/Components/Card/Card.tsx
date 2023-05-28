@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { GET_COMMENTS } from '../../redux/actions'
+import { GET_COMMENTS } from '../../redux/action/postAction'
 import { postType } from '../../redux/reducers/postsReducer'
 import './Card.css'
 import { Author } from '../Author'

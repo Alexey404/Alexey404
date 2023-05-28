@@ -7,10 +7,10 @@ import {
   GetCommentsAction,
   LOAD_COMMENTS,
   SET_COMMENTS,
-} from '../actions'
+} from '../action/postAction'
 import { commentsType } from '../reducers/postsReducer'
 
-function* workerSaga({ id }: GetCommentsAction): any {
+function* workerSaga({ id }: GetCommentsAction) {
   yield put({ type: LOAD_COMMENTS, id })
   yield delay(300)
 

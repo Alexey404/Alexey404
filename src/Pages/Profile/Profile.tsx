@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { CardComponent } from '../../Components/Card/Card'
 import { Loader } from '../../Components/Loader/Loader'
-import { GET_PROFILE, LOAD_AUTOR, LOAD_POSTS } from '../../redux/actions'
+import { GET_PROFILE, LOAD_POSTS } from '../../redux/action/postAction'
 import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import './Profile.css'
+import { LOAD_AUTOR } from '../../redux/action/profileAction'
 
 export const Profile = () => {
   const profileState = useSelector((state: AppStateType) => state.profileState)

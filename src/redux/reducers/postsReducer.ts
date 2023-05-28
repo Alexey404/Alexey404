@@ -6,7 +6,7 @@ import {
   PostsActions,
   SET_COMMENTS,
   SET_POSTS,
-} from '../actions'
+} from '../action/postAction'
 
 export type postType = {
   id: number

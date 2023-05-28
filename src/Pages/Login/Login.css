@@ -1,0 +1,38 @@
+.login-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.card-login {
+	display: flex;
+	width: 600px;
+	height: 60vh;
+	align-items: center;
+	box-shadow: 0px 0px 10px 0px black;
+}
+
+.login-title {
+	margin-top: 15px;
+}
+
+.form-container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 80%;
+	width: 80%;
+	margin-top: 15px;
+	padding: 15px;
+}
+
+.form {
+	width: 100%;
+}
+
+.login-loader {
+	display: flex;
+	height: 100vh;
+}

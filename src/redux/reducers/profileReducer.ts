@@ -1,10 +1,15 @@
-import { ERROR_AUTOR, LOAD_AUTOR, ProfileAction, SET_AUTOR } from '../actions'
+import {
+  ERROR_AUTOR,
+  LOAD_AUTOR,
+  ProfileAction,
+  SET_AUTOR,
+} from '../action/profileAction'
 import { authorType } from './postsReducer'
 
 type InitialStatePostsType = typeof initialState
 
 const initialState = {
-  author: { id: 1, name: 'Олег', email: 'oleg@gmail.com' } as authorType,
+  author: {} as authorType,
   isLoading: false,
   isError: false,
 }

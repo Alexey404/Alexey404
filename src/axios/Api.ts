@@ -27,3 +27,12 @@ export const getProfile = async (id: number) => {
   })
   return reqest.data
 }
+
+export const getProfileOfPassword = async (password: string, email: string) => {
+  const url = baseURL + '/profile/'
+  const reqest = await axios(url, {
+    method: 'get',
+    params: { password, email },
+  })
+  return reqest.data
+}

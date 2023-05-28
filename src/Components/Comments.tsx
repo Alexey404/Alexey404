@@ -2,7 +2,6 @@ import { Alert, ListGroup } from 'react-bootstrap'
 import { commentsType, postType } from '../redux/reducers/postsReducer'
 import { Author } from './Author'
 import { Loader } from './Loader/Loader'
-import { memo } from 'react'
 
 type propsType = {
   post: postType
