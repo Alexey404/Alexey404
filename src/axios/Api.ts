@@ -36,3 +36,17 @@ export const getProfileOfPassword = async (password: string, email: string) => {
   })
   return reqest.data
 }
+
+export const postCreateNewAccount = async (
+  password: string,
+  email: string,
+  name: string
+) => {
+  const url = baseURL + '/profile'
+  const reqest = await axios.post(url, {
+    password,
+    email,
+    name,
+  })
+  return reqest.data
+}

@@ -1,5 +1,6 @@
 import {
   DELETE_PROFILE,
+  ERROR_PROFILE,
   LOAD_PROFILE,
   MyProfileAction,
   SET_PROFILE,
@@ -9,6 +10,7 @@ import { authorType } from './postsReducer'
 const initialState = {
   profile: {} as authorType,
   isLoading: false,
+  isError: false,
 }
 
 export const myProfileReducer = (
@@ -22,12 +24,20 @@ export const myProfileReducer = (
         ...state,
         profile: action.peyload,
         isLoading: false,
+        isError: false,
       }
     }
     case LOAD_PROFILE: {
       return {
         ...state,
         isLoading: true,
+      }
+    }
+    case ERROR_PROFILE: {
+      return {
+        ...state,
+        isError: true,
+        isLoading: false,
       }
     }
     case DELETE_PROFILE: {

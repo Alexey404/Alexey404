@@ -21,10 +21,9 @@ export const Auth = ({ Component, auth }: typeProps) => {
     if (myIdStore) {
       dispatch({ type: GET_MYPROFILE, id: Number(myIdStore) })
     }
-  }, [dispatch])
+  }, [dispatch, myIdStore])
 
   if (profileState.isLoading) {
-    console.log('profileState', profileState.isLoading)
     return (
       <div className='layout-contayner'>
         <Loader />
@@ -33,9 +32,9 @@ export const Auth = ({ Component, auth }: typeProps) => {
   }
 
   if (!myIdStore && !profileState.profile.id && auth) {
-    console.log('profile.id', myIdStore && !profileState.profile.id)
     return <Navigate to='/login' />
   }
+
   return (
     <>
       <Component />

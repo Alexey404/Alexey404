@@ -1,14 +1,13 @@
 import { AxiosPromise } from 'axios'
-import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
+import { put, spawn, takeEvery } from 'redux-saga/effects'
 import { getProfile } from '../../axios/Api'
 import { GET_PROFILE, GetProfileAction } from '../action/postAction'
+import { ERROR_AUTOR, LOAD_AUTOR, SET_AUTOR } from '../action/profileAction'
 import { authorType } from '../reducers/postsReducer'
 import { getPostSaga } from './postsSaga'
-import { ERROR_AUTOR, LOAD_AUTOR, SET_AUTOR } from '../action/profileAction'
 
 function* getAutorSaga(id: number) {
   yield put({ type: LOAD_AUTOR })
-  yield delay(300)
 
   try {
     const author: AxiosPromise<authorType> = yield getProfile(id)

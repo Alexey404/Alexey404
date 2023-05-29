@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Tab, Tabs } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
-import { Loader } from '../../Components/Loader/Loader'
 import { Login } from '../../Components/LoginPage/Login'
 import { GET_MYPROFILE } from '../../redux/action/myProfileAction'
 import { AppStateType } from '../../redux/store'
-import './Login.css'
+import s from './Login.module.css'
+import { Rrgistration } from '../../Components/LoginPage/Rrgistration'
 
 export const LoginPage = () => {
   const myIdStore = localStorage.getItem('myId')
@@ -28,8 +28,22 @@ export const LoginPage = () => {
   return (
     <>
       <Container>
-        <div className='card-сontainer'>
-          <Login />
+        <div className={s.login_container}>
+          <div className={s.card_сontainer}>
+            <Tabs defaultActiveKey='login' id='fill-tab-example' fill>
+              <Tab className={s.tab_item} eventKey='login' title='Login'>
+                <Login />
+              </Tab>
+
+              <Tab
+                className={s.tab_item}
+                eventKey='registration'
+                title='Registration'
+              >
+                <Rrgistration />
+              </Tab>
+            </Tabs>
+          </div>
         </div>
       </Container>
     </>

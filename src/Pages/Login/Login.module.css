@@ -1,0 +1,67 @@
+.login_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.card_login {
+	display: flex;
+	width: 60vh;
+	height: 60vh;
+	align-items: center;
+	box-shadow: 5px 5px 10px 0px black;
+	margin: 0px;
+}
+
+.tab_item {
+	height: 60vh;
+	width: 60vh;
+}
+
+.login_title {
+	margin-top: 15px;
+}
+
+.form_container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 80%;
+	width: 80%;
+	margin-top: 15px;
+	padding: 15px;
+}
+
+.card {
+	margin: 0px;
+}
+
+.form {
+	width: inherit;
+}
+
+.login-loader {
+	display: flex;
+	height: 100vh;
+}
+
+@media (max-width: 768px) {
+	.tab_item {
+		width: 350px;
+	}
+	.login_container {
+		width: inherit;
+	}
+	.card_login {
+		width: inherit;
+	}
+	.form_container {
+		width: 100%;
+	}
+}
+
+.btn_next {
+	margin-left: 15px;
+}

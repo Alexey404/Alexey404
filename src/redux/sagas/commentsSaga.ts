@@ -1,5 +1,5 @@
 import { AxiosPromise } from 'axios'
-import { delay, put, spawn, takeEvery } from 'redux-saga/effects'
+import { put, spawn, takeEvery } from 'redux-saga/effects'
 import { getComments } from '../../axios/Api'
 import {
   ERROR_COMMENTS,
@@ -12,7 +12,6 @@ import { commentsType } from '../reducers/postsReducer'
 
 function* workerSaga({ id }: GetCommentsAction) {
   yield put({ type: LOAD_COMMENTS, id })
-  yield delay(300)
 
   try {
     const data: AxiosPromise<commentsType> = yield getComments(id)
