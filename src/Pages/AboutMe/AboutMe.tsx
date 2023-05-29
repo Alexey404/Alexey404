@@ -17,10 +17,7 @@ export const AboutMe = () => {
               <Card.Text>volik.aiii@gmail.com</Card.Text>
               <h4>Основное</h4>
               <Card.Text>
-                Я Frontend разработчик с опытом работы 1 год.
-              </Card.Text>
-              <Card.Text>
-                Хорошо знаю JS и чуть больше базового понимания TS.
+                Я Frontend разработчик с опытом работы 2 годa.
               </Card.Text>
 
               <Card.Text>
@@ -35,10 +32,7 @@ export const AboutMe = () => {
                 React, Apollo GraphQL, Redux, Express, TypeScript, Node.js,
                 Express
               </Card.Text>
-              <h4>Личные качества</h4>
-              <Card.Text>
-                Прямолинейный, честный, неконфликтный, немного скромный
-              </Card.Text>
+
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <h2>Моя история 'Войти в IT'</h2>
               </div>

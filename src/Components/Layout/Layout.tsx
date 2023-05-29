@@ -83,15 +83,17 @@ export const Layout = ({ Component, auth }: typeProps) => {
                   Список постов
                 </Dropdown.Item>
 
-                <Dropdown.Item
-                  as={Link}
-                  to='/aboutMe'
-                  active={location.pathname === '/aboutMe'}
-                >
-                  Обо мне
-                </Dropdown.Item>
                 {isLogin ? (
-                  <Dropdown.Item onClick={logOut}>Выйти</Dropdown.Item>
+                  <>
+                    <Dropdown.Item
+                      as={Link}
+                      to='/aboutMe'
+                      active={location.pathname === '/aboutMe'}
+                    >
+                      Обо мне
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={logOut}>Выйти</Dropdown.Item>
+                  </>
                 ) : (
                   <Dropdown.Item as={Link} to={'/login'}>
                     Войти
