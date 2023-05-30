@@ -10,13 +10,16 @@
 	width: 60vh;
 	height: 60vh;
 	align-items: center;
-	box-shadow: 5px 5px 10px 0px black;
+	background: inherit;
 	margin: 0px;
+	color: #fff;
 }
 
 .tab_item {
-	height: 60vh;
-	width: 60vh;
+	border-radius: inherit !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+	background-color: inherit !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+	border: none !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+	color: #fff;
 }
 
 .login_title {
@@ -64,4 +67,14 @@
 
 .btn_next {
 	margin-left: 15px;
+}
+
+.tabs_login {
+	border-bottom: 1px solid black;
+}
+
+.card_сontainer {
+	box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+	background-color: inherit;
+	border-radius: 20px;
 }

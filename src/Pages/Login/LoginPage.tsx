@@ -30,13 +30,18 @@ export const LoginPage = () => {
       <Container>
         <div className={s.login_container}>
           <div className={s.card_сontainer}>
-            <Tabs defaultActiveKey='login' id='fill-tab-example' fill>
-              <Tab className={s.tab_item} eventKey='login' title='Login'>
+            <Tabs
+              className={s.tabs_login}
+              defaultActiveKey='login'
+              transition={false}
+              fill
+            >
+              <Tab tabClassName={s.tab_item} eventKey='login' title='Login'>
                 <Login />
               </Tab>
 
               <Tab
-                className={s.tab_item}
+                tabClassName={s.tab_item}
                 eventKey='registration'
                 title='Registration'
               >

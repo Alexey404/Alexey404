@@ -3,23 +3,33 @@
 }
 
 .dropdown-layout::after {
-	display: none !important;
+	display: none !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
 }
 
 .dropdown-layout {
-	border: none !important;
-	background-color: transparent !important;
+	border: none !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+	background-color: inherit !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
 }
 
 .dropdown-menu[data-bs-popper] {
 	top: 0px;
 	right: 50px;
 	left: auto;
+	background-color: rgb(40, 45, 49) !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+	color: #fff !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
 }
 
 .dropdown-profile-card {
 	display: flex;
 	padding: 10px;
+}
+
+.dropdown-item {
+	color: #fff !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
+}
+
+.dropdown-item:hover {
+	color: #000000 !important; /* Внимание использовать important очень плохо, не повторяйте!!!  */
 }
 
 .dropdown-profile {

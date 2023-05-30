@@ -40,3 +40,8 @@
 	display: flex;
 	justify-content: center;
 }
+
+.list-group-item {
+	background: inherit;
+	color: #fff;
+}
