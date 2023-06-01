@@ -38,10 +38,7 @@ export const Layout = ({ Component, auth }: typeProps) => {
         >
           <Container>
             <Navbar.Brand as={Link} to='/'>
-              Назад
-              {
-                // (обычно логотип используется как переход на главную странницу в данном случае будет выполнять функцию назад)
-              }
+              Home
             </Navbar.Brand>
 
             <Dropdown as={ButtonGroup}>
