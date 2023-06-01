@@ -9,16 +9,13 @@ type propsAuthorType = {
 
 export const Author = (props: propsAuthorType) => {
   const navigation = useNavigate()
-  const { name, email, id } = props.author
+  const { name, email, id, img } = props.author
 
   return (
     <div className='author-block'>
-      <Image
-        onClick={() => navigation('/profile/' + id)}
-        className='icon-placehold'
-        src='https://placehold.it/48x48/'
-      />
-
+      <div className='images icon'>
+        <Image onClick={() => navigation('/profile/' + id)} src={img} />
+      </div>
       <div>
         <div className='author-name-block'>
           <div className='author-block-item'>{name}</div>

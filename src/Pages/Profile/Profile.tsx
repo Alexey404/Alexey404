@@ -40,8 +40,8 @@ export const Profile = () => {
           <>
             <Card>
               <div className='card-profile'>
-                <Col xs={6} md={4}>
-                  <Image src='https://placehold.it/171x180' roundedCircle />
+                <Col className='images' xs={6} md={4}>
+                  <Image src={profileState.author.img} />
                 </Col>
                 <div>
                   <h1>Автор: {profileState.author.name}</h1>

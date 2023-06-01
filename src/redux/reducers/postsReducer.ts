@@ -28,6 +28,7 @@ export type authorType = {
   id: number
   name: string
   email: string
+  img: string
 }
 
 type InitialStatePostsType = typeof initialState

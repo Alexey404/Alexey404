@@ -51,16 +51,18 @@
 }
 
 @media (max-width: 768px) {
-	.tab_item {
-		width: 350px;
+	.card_login {
+		width: 100%;
 	}
 	.login_container {
-		width: inherit;
+		width: 100%;
 	}
-	.card_login {
-		width: inherit;
-	}
+
 	.form_container {
+		width: 100%;
+	}
+
+	.card_сontainer {
 		width: 100%;
 	}
 }
@@ -78,3 +80,4 @@
 	background-color: inherit;
 	border-radius: 20px;
 }
+

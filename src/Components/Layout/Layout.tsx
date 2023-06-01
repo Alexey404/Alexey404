@@ -61,8 +61,8 @@ export const Layout = ({ Component, auth }: typeProps) => {
                   >
                     <div className='dropdown-profile-card'>
                       <Image
-                        className='icon-placehold'
-                        src='https://placehold.it/48x48/'
+                        className='images icon'
+                        src={profileState.profile.img}
                       />
 
                       <div className='dropdown-profile'>
