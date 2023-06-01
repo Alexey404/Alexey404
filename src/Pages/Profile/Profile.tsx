@@ -43,7 +43,7 @@ export const Profile = () => {
                 <Col className='images' xs={6} md={4}>
                   <Image src={profileState.author.img} />
                 </Col>
-                <div>
+                <div className='profile-name-cont'>
                   <h1>Автор: {profileState.author.name}</h1>
                   <div>Почта: {profileState.author.email}</div>
                 </div>

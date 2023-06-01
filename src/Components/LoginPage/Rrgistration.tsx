@@ -53,6 +53,7 @@ export const Rrgistration = () => {
           <Form.Group controlId='emailRegis' className='mb-3'>
             <Form.Label>Почта</Form.Label>
             <Form.Control
+              className='form-control'
               value={state.email}
               onChange={event =>
                 setstate((e: formType) => {

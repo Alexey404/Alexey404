@@ -58,6 +58,7 @@ export const Login = () => {
           <Form.Group className='mb-3' controlId='emailLogin'>
             <Form.Label>Почта</Form.Label>
             <Form.Control
+              className={s.form_login}
               value={state.email}
               onChange={event =>
                 setstate((e: formType) => {
@@ -72,6 +73,7 @@ export const Login = () => {
           <Form.Group className='mb-3' controlId='passwordLogin'>
             <Form.Label>Пароль</Form.Label>
             <Form.Control
+              className={s.form_login}
               value={state.password}
               onChange={event => setPassword(event.target.value)}
               type='password'

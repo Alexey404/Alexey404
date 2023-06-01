@@ -23,6 +23,18 @@
 	object-fit: cover;
 }
 
+@media (max-width: 500px) {
+	.images {
+		width: 150px;
+		height: 150px;
+		border-radius: 150px;
+	}
+	.images img {
+		width: 150px;
+		height: 150px;
+	}
+}
+
 .icon {
 	width: 48px;
 	height: 48px;
@@ -31,4 +43,35 @@
 .icon img {
 	width: 48px;
 	height: 48px;
+}
+
+.profile-name-cont {
+	margin-left: 20px;
+}
+
+.form-control {
+	background-color: rgb(47, 59, 66);
+	border: 1px solid #24292e;
+	color: #fff;
+}
+
+.form-control:focus {
+	background-color: rgb(51, 66, 75);
+	border: 1px solid #24292e;
+	color: #fff;
+}
+
+.form-control:auto-fill {
+	background-color: rgb(51, 66, 75);
+	border: 1px solid #24292e;
+	color: #fff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	background-color: rgb(51, 66, 75);
+	border: 1px solid #24292e;
+	color: #fff;
 }
