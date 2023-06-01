@@ -102,7 +102,7 @@ export const Layout = ({ Component, auth }: typeProps) => {
         </Navbar>
       </div>
 
-      <div className='layout-contayner'>
+      <div className='layout-container'>
         <Auth Component={Component} auth={auth} />
       </div>
 

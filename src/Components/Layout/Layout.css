@@ -46,7 +46,7 @@
 	z-index: 2;
 }
 
-.layout-contayner {
+.layout-container {
 	min-height: calc(100vh - 60px - 30px);
 }
 

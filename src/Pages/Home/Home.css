@@ -5,7 +5,7 @@
 
 .card-сontainer {
 	width: 800px;
-	min-height: calc(100vh - 60px);
+	min-height: calc(100vh - 60px - 30px);
 }
 
 .card {
