@@ -11,7 +11,7 @@ import { Rrgistration } from '../../Components/LoginPage/Rrgistration'
 export const LoginPage = () => {
   const myIdStore = localStorage.getItem('myId')
   const profileState = useSelector(
-    (state: AppStateType) => state.myProfileState
+    (state: AppStateType) => state.profile
   )
   const dispatch = useDispatch()
 

@@ -1,22 +1,33 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux'
+import {
+  PreloadedState,
+  combineReducers,
+  configureStore,
+} from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-import { postsReducer } from './reducers/postsReducer'
-import { profileReducer } from './reducers/profileReducer'
-import { rootSaga } from './sagas/rootSaga'
-import { myProfileReducer } from './reducers/myProfileReduser'
 
-const reducers = combineReducers({
-  postState: postsReducer,
-  profileState: profileReducer,
-  myProfileState: myProfileReducer,
-})
+import { rootSaga } from './sagas/rootSaga'
+import { authorReducer } from './newRedusers/authorREduser'
+import { postsReducer } from './newRedusers/postsReducer'
+import { profileReducer } from './newRedusers/myProfileReduser'
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(reducers, applyMiddleware(sagaMiddleware))
+
+const rootReducer = combineReducers({
+  profile: profileReducer,
+  author: authorReducer,
+  posts: postsReducer,
+})
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(sagaMiddleware),
+})
 
 sagaMiddleware.run(rootSaga)
 
-type ReducersType = typeof reducers
-export type AppStateType = ReturnType<ReducersType>
+export type AppStateType = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch
 
 export default store

@@ -8,28 +8,31 @@ import {
 import {
   CREATE_NEW_ACCAUNT,
   CreateNewAccountAction,
-  ERROR_PROFILE,
   GET_MYPROFILE,
   GET_MYPROFILE_NAME,
   GetMyProfileAction,
-  GetMyProfileNameAction,
-  LOAD_PROFILE,
-  SET_PROFILE,
+  GetMyProfileNameAction
 } from '../action/myProfileAction'
-import { authorType } from '../reducers/postsReducer'
+
+import {
+  errorProfile,
+  loadProfile,
+  setProfile,
+} from '../newRedusers/myProfileReduser'
+import { authorType } from '../newRedusers/postsReducer'
 
 function* workerSaga({ id }: GetMyProfileAction) {
-  yield put({ type: LOAD_PROFILE })
+  yield put(loadProfile())
 
   try {
     const author: AxiosPromise<authorType> = yield getProfile(id)
-    yield put({ type: SET_PROFILE, peyload: author })
+    yield put(setProfile(author as any))
   } catch {
-    yield put({ type: ERROR_PROFILE })
+    yield put(errorProfile())
   }
 }
 function* createNewAccount({ password, email, name }: CreateNewAccountAction) {
-  yield put({ type: LOAD_PROFILE })
+  yield put(loadProfile())
 
   try {
     const author: AxiosPromise<authorType> = yield postCreateNewAccount(
@@ -37,14 +40,14 @@ function* createNewAccount({ password, email, name }: CreateNewAccountAction) {
       email,
       name
     )
-    yield put({ type: SET_PROFILE, peyload: author })
+    yield put(setProfile(author as any))
   } catch {
-    yield put({ type: ERROR_PROFILE })
+    yield put(errorProfile())
   }
 }
 
 function* getProfileSaga({ password, email }: GetMyProfileNameAction) {
-  yield put({ type: LOAD_PROFILE })
+  yield put(loadProfile())
 
   try {
     const author: AxiosPromise<authorType[]> = yield getProfileOfPassword(
@@ -52,9 +55,9 @@ function* getProfileSaga({ password, email }: GetMyProfileNameAction) {
       email
     )
     const getProfile: any = author
-    yield put({ type: SET_PROFILE, peyload: getProfile[0] })
+    yield put(setProfile(getProfile[0]))
   } catch {
-    yield put({ type: ERROR_PROFILE })
+    yield put(errorProfile())
   }
 }
 

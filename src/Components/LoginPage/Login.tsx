@@ -16,7 +16,7 @@ type formType = {
 export const Login = () => {
   const dispatch = useDispatch()
   const profileState = useSelector(
-    (state: AppStateType) => state.myProfileState
+    (state: AppStateType) => state.profile
   )
   const [state, setstate] = useState<formType>({
     password: '4982AFfOfi',

@@ -4,7 +4,7 @@ import { ButtonGroup, Container, Dropdown, Image } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
-import { DELETE_PROFILE } from '../../redux/action/myProfileAction'
+import { deleteProfile } from '../../redux/newRedusers/myProfileReduser'
 import { AppStateType } from '../../redux/store'
 import { Auth } from '../Auth'
 import './Layout.css'
@@ -15,14 +15,12 @@ type typeProps = {
 }
 
 export const Layout = ({ Component, auth }: typeProps) => {
-  const profileState = useSelector(
-    (state: AppStateType) => state.myProfileState
-  )
+  const profileState = useSelector((state: AppStateType) => state.profile)
   const dispatch = useDispatch()
   const location = useLocation()
 
   const logOut = () => {
-    dispatch({ type: DELETE_PROFILE })
+    dispatch(deleteProfile())
   }
   const isLogin = profileState.profile.id
 

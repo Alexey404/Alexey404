@@ -1,6 +1,6 @@
 import Image from 'react-bootstrap/Image'
 import { useNavigate } from 'react-router-dom'
-import { authorType } from '../redux/reducers/postsReducer'
+import { authorType } from '../redux/newRedusers/postsReducer'
 
 type propsAuthorType = {
   author: authorType

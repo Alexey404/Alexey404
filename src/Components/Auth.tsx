@@ -14,7 +14,7 @@ export const Auth = ({ Component, auth }: typeProps) => {
   const myIdStore = localStorage.getItem('myId')
   const dispatch = useDispatch()
   const profileState = useSelector(
-    (state: AppStateType) => state.myProfileState
+    (state: AppStateType) => state.profile
   )
 
   useEffect(() => {

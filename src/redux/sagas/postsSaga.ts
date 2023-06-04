@@ -2,21 +2,23 @@ import { AxiosPromise } from 'axios'
 import { put, spawn, takeEvery } from 'redux-saga/effects'
 import { getListPosts } from '../../axios/Api'
 import {
-  ERROR_POSTS,
-  GET_POSTS,
-  LOAD_POSTS,
-  SET_POSTS,
+  GET_POSTS
 } from '../action/postAction'
-import { postType } from '../reducers/postsReducer'
+import {
+  errorPosts,
+  loadPosts,
+  postType,
+  setPosts,
+} from '../newRedusers/postsReducer'
 
 export function* getPostSaga(id: number | null = null) {
-  yield put({ type: LOAD_POSTS })
+  yield put(loadPosts())
 
   try {
     const listPost: AxiosPromise<Array<postType>> = yield getListPosts(id)
-    yield put({ type: SET_POSTS, peyload: listPost })
+    yield put(setPosts(listPost as any))
   } catch {
-    yield put({ type: ERROR_POSTS })
+    yield put(errorPosts())
   }
 }
 

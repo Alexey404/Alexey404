@@ -2,18 +2,23 @@ import { AxiosPromise } from 'axios'
 import { put, spawn, takeEvery } from 'redux-saga/effects'
 import { getProfile } from '../../axios/Api'
 import { GET_PROFILE, GetProfileAction } from '../action/postAction'
-import { ERROR_AUTOR, LOAD_AUTOR, SET_AUTOR } from '../action/profileAction'
-import { authorType } from '../reducers/postsReducer'
+import {
+  errorAuthor,
+  loadAuthor,
+  setAuthor,
+} from '../newRedusers/authorREduser'
+import { authorType } from '../newRedusers/postsReducer'
 import { getPostSaga } from './postsSaga'
 
 function* getAutorSaga(id: number) {
-  yield put({ type: LOAD_AUTOR })
+  yield put(loadAuthor())
 
   try {
     const author: AxiosPromise<authorType> = yield getProfile(id)
-    yield put({ type: SET_AUTOR, peyload: author })
+
+    yield put(setAuthor(author as any))
   } catch {
-    yield put({ type: ERROR_AUTOR })
+    yield put(errorAuthor())
   }
 }
 

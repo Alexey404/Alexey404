@@ -1,24 +1,24 @@
 import { AxiosPromise } from 'axios'
 import { put, spawn, takeEvery } from 'redux-saga/effects'
 import { getComments } from '../../axios/Api'
-import {
-  ERROR_COMMENTS,
-  GET_COMMENTS,
-  GetCommentsAction,
-  LOAD_COMMENTS,
-  SET_COMMENTS,
-} from '../action/postAction'
-import { commentsType } from '../reducers/postsReducer'
+import { GET_COMMENTS } from '../action/postAction'
 
-function* workerSaga({ id }: GetCommentsAction) {
-  yield put({ type: LOAD_COMMENTS, id })
+import {
+  commentsType,
+  errorComments,
+  loadComments,
+  setComments,
+} from '../newRedusers/postsReducer'
+
+function* workerSaga({ id }: any) {
+  yield put(loadComments(id))
 
   try {
     const data: AxiosPromise<commentsType> = yield getComments(id)
-    const peyload = { data, id }
-    yield put({ type: SET_COMMENTS, peyload })
+    const payload: any = { data, id }
+    yield put(setComments(payload))
   } catch {
-    yield put({ type: ERROR_COMMENTS, id })
+    yield put(errorComments(id))
   }
 }
 

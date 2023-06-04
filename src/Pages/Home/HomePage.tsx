@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CardComponent } from '../../Components/Card/Card'
 import { Loader } from '../../Components/Loader/Loader'
 import { GET_POSTS } from '../../redux/action/postAction'
-import { postType } from '../../redux/reducers/postsReducer'
 import { AppStateType } from '../../redux/store'
 import './Home.css'
+import { postType } from '../../redux/newRedusers/postsReducer'
 
 export const HomePage = () => {
-  const postState = useSelector((state: AppStateType) => state.postState)
+  const postState = useSelector((state: AppStateType) => state.posts)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const HomePage = () => {
           {postState.isLoading ? (
             <Loader />
           ) : (
-            postState.posts.map((post: postType) => (
+            postState.posts?.map((post: postType) => (
               <CardComponent key={post.id} post={post} />
             ))
           )}
