@@ -25,7 +25,6 @@ const router = createHashRouter([
   },
 ])
 
-
 export const App = () => {
   return (
     <>
