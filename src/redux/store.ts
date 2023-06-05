@@ -1,14 +1,12 @@
 import {
-  PreloadedState,
   combineReducers,
-  configureStore,
+  configureStore
 } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-
-import { rootSaga } from './sagas/rootSaga'
 import { authorReducer } from './newRedusers/authorREduser'
-import { postsReducer } from './newRedusers/postsReducer'
 import { profileReducer } from './newRedusers/myProfileReduser'
+import { postsReducer } from './newRedusers/postsReducer'
+import { rootSaga } from './sagas/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -27,7 +25,6 @@ const store = configureStore({
 sagaMiddleware.run(rootSaga)
 
 export type AppStateType = ReturnType<typeof store.getState>
-
 export type AppDispatch = typeof store.dispatch
 
 export default store

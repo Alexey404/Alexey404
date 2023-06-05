@@ -18,7 +18,6 @@ const authorSlice = createSlice({
       state.isError = true
     },
     setAuthor(state, action: any) {
-			console.log(action.payload)
       state.author = action.payload
       state.isLoading = false
     },
@@ -26,5 +25,4 @@ const authorSlice = createSlice({
 })
 
 export const { loadAuthor, errorAuthor, setAuthor } = authorSlice.actions
-
 export const authorReducer = authorSlice.reducer
